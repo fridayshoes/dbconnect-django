@@ -6,7 +6,7 @@ pip install Django
 pip install black
 pip install djangorestframework
 
-##
+## Set up models
 
 Set up a models.py that has the table structure for SQLite
 
@@ -15,18 +15,17 @@ Set up a models.py that has the table structure for SQLite
 Open Postman app, http://127.0.0.1:8000/api/departments
 Select GET, press send, should see the following empty table
 
-'''
+```
 []
 
 ```
 
-
-### Add a record
+## Add a record
 
 Open a new Postman tab, http://127.0.0.1:8000/api/departments/add
 Select POST, Body, Raw, JSON press send, should see the following empty table
 
-'''
+```
 {
   "dept_name": "IT",
   "location": "Mumbai",
@@ -36,7 +35,7 @@ Select POST, Body, Raw, JSON press send, should see the following empty table
 
 Select GET, http://127.0.0.1:8000/api/departments press send, should see the populated table
 
-'''
+```
 {
 "dept_name": "IT",
 "location": "Mumbai",
@@ -45,12 +44,11 @@ Select GET, http://127.0.0.1:8000/api/departments press send, should see the pop
 
 ```
 
-
 ### Delete a record
 
 Select GET, http://127.0.0.1:8000/api/departments press send, should see the populated table
 
-'''
+```
 {
 "dept_name": "IT",
 "location": "Mumbai",
@@ -61,7 +59,7 @@ Select GET, http://127.0.0.1:8000/api/departments press send, should see the pop
 
 Select POST, Body, Raw, JSON press send, should see the following empty table
 
-'''
+```
 {
 "dept_name": "Finance",
 "location": "London",
@@ -70,25 +68,26 @@ Select POST, Body, Raw, JSON press send, should see the following empty table
 
 ```
 
-
 Select GET, http://127.0.0.1:8000/api/departments press send, should see the populated table
 
-'''
+```
 {
+"dept_id": 1,
 "dept_name": "IT",
 "location": "Mumbai",
 "head_of_department": "Amit"
 }
 {
-  "dept_name": "Finance",
-  "location": "London",
-  "head_of_department": "David"
+"dept_id": 2,
+"dept_name": "Finance",
+"location": "London",
+"head_of_department": "David"
 }
 ```
 
 Open new pPostman tab, Select DELETE, http://127.0.0.1:8000/api/departments/1/ press send, should see the populated table
 
-'''
+```
 {
 "message": "Department deleted successfully"
 }
@@ -100,11 +99,37 @@ Select GET, http://127.0.0.1:8000/api/departments press send, should see the pop
 ```
 
 {
+"dept_id": 2",
 "dept_name": "Finance",
 "location": "London",
 "head_of_department": "David"
 }
 
 ```
+
+### Fetch a record
+
+First add a new record
+
+```
+
+{
+"dept_name": "Guru",
+"location": "London",
+"head_of_department": "Morat"
+}
+
+```
+
+Open a new Postman tab, Select GET, http://127.0.0.1:8000/api/getdepartment_id/3/ press send, should see the populated table
+
+```
+
+{
+"dept_id": 3,
+"dept_name": "Guru",
+"location": "London",
+"head_of_department": "Morat"
+}
 
 ```
