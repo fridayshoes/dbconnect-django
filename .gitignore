@@ -1,0 +1,45 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+
+# Virtual environments
+venv/
+env/
+.venv/
+.env/
+
+# Django
+*.log
+*.pot
+*.pyc
+db.sqlite3
+media/
+staticfiles/
+static/
+
+# Environment & secrets
+*.env
+.env.*
+secrets.json
+
+# Migrations (optional — see notes below)
+# Uncomment if you do NOT want to track migrations initially
+# */migrations/*
+# !*/migrations/__init__.py
+
+# IDEs / Editors
+.vscode/
+.idea/
+*.swp
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Node / frontend (if using)
+node_modules/
+dist/
+build/
