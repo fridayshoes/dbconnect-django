@@ -19,4 +19,14 @@ def add_department(request):
         return Response(serializer.data)
  
     return Response(serializer.errors)
+
+@api_view(['DELETE'])
+def delete_department(request, id):
+    try:
+        department = Department.objects.get(dept_id=id)
+        department.delete()
+        return Response({"message": "Department deleted successfully"})
+    except Department.DoesNotExist:
+        return Response({"error": "Department not found"})
+ 
  
